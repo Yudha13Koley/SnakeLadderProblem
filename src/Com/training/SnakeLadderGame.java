@@ -26,6 +26,6 @@ public class SnakeLadderGame {
 			PlayerPosition-=DieRoll;
 		System.out.println("The position is : "+PlayerPosition+" No of Times Dice Rolled :"+turn);
 	}
-
+System.out.println("No of Times Dice was Played to Win : "+turn);
 }
 }
