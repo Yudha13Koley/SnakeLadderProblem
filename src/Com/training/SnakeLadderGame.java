@@ -6,26 +6,61 @@ public class SnakeLadderGame {
 	public static final int Snake=2;
 	public static final int Winning_Position=100;
 	public static void main(String[] args) {
-		int PlayerPosition=0,turn=0;
-		while(PlayerPosition< Winning_Position) {
-			turn++;
+		int Player1Position=0,Player1Turn=0;
+		int Player2Position=0,Player2Turn=0;
+		boolean Play1 =true;
+		while(Player1Position< Winning_Position && Player2Position < Winning_Position) {
+			if(Play1==true) {
+				Player1Turn++;
 		int DieRoll =(int)Math.floor(Math.random()*10)%6 +1;
 		int CheckOptions=(int)Math.floor(Math.random()*10)%3;
 		switch(CheckOptions)
 		{
-		case No_Play : 	break ;
-		case Ladder : PlayerPosition+=DieRoll;
+		case No_Play : Play1=false;
+			break ;
+		
+		case Ladder : Player1Position+=DieRoll;
+		              Play1 =true;
 						break;
-		case Snake : PlayerPosition-=DieRoll;
+		case Snake : Player1Position-=DieRoll;
+		             Play1=false;
 						break;
 		default : 		break;
 		}
-		if(PlayerPosition<0)
-			PlayerPosition=0;
-		if(PlayerPosition>100)
-			PlayerPosition-=DieRoll;
-		System.out.println("The position is : "+PlayerPosition+" No of Times Dice Rolled :"+turn);
-	}
-System.out.println("No of Times Dice was Played to Win : "+turn);
+		if(Player1Position<0)
+			Player1Position=0;
+		if(Player1Position>100)
+			Player1Position-=DieRoll;
+			}
+			else {
+				Player2Turn++;
+			int DieRoll =(int)Math.floor(Math.random()*10)%6 +1;
+			int CheckOptions=(int)Math.floor(Math.random()*10)%3;
+			switch(CheckOptions)
+			{
+			case No_Play : Play1=true;
+				break ;
+			
+			case Ladder : Player2Position+=DieRoll;
+			              Play1 =false;
+							break;
+			case Snake : Player2Position-=DieRoll;
+			             Play1=true;
+							break;
+			default : 		break;
+			}
+			if(Player2Position<0)
+				Player2Position=0;
+			if(Player2Position>100)
+				Player2Position-=DieRoll;
+				}
+				
+			}
+		 System.out.println("The Player 1 Position is : "+Player1Position+" Turn no : "+Player1Turn);
+		 System.out.println("The Player 2 Position is : "+Player2Position+" Turn no : "+Player2Turn);
+		 if(Player1Position==Winning_Position)
+			 System.out.println("Player 1 Wins !");
+		 else 
+			 System.out.println("Player 2 Wins !");
 }
 }
