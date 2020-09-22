@@ -2,7 +2,6 @@ package Com.training;
 
 public class SnakeLadderGame {
 	public static void main(String[] args) {
-		int PlayerPosition=0,turn=0;
+		System.out.println("Welcome to Snake Ladder Game !");
 	}
-
-}
+	}
