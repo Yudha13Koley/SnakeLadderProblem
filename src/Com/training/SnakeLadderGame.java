@@ -8,6 +8,7 @@ public class SnakeLadderGame {
 	public static void main(String[] args) {
 		int PlayerPosition=0,turn=0;
 		while(PlayerPosition< Winning_Position) {
+			turn++;
 		int DieRoll =(int)Math.floor(Math.random()*10)%6 +1;
 		int CheckOptions=(int)Math.floor(Math.random()*10)%3;
 		switch(CheckOptions)
@@ -23,7 +24,7 @@ public class SnakeLadderGame {
 			PlayerPosition=0;
 		if(PlayerPosition>100)
 			PlayerPosition-=DieRoll;
-		System.out.println("The position is : "+PlayerPosition);
+		System.out.println("The position is : "+PlayerPosition+" No of Times Dice Rolled :"+turn);
 	}
 
 }
