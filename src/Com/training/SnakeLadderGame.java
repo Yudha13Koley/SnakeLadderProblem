@@ -21,6 +21,8 @@ public class SnakeLadderGame {
 		}
 		if(PlayerPosition<0)
 			PlayerPosition=0;
+		if(PlayerPosition>100)
+			PlayerPosition-=DieRoll;
 		System.out.println("The position is : "+PlayerPosition);
 	}
 
